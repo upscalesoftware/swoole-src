@@ -42,7 +42,7 @@ $pm->childFunc = function () use ($pm)
     $count = 0;
     $serv->on('receive', function (swoole_server $serv, $fd, $reactorId, $data) use (&$count) {
         $count++;
-        $serv->send($fd, "Worker $serv->worker_id served $count request(s) since start");
+        $serv->send($fd, "Worker $serv->worker_id served $count request(s) since start\r\n\r\n");
     });
     $serv->start();
 };
